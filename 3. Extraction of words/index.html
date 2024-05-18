@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Extraction </title>
+<style>
+body {
+    text-align: center; 
+}
+
+.highlight {
+    background-color: yellow;
+   
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+#paragraph {
+    margin: 0 auto; 
+    width: 80%; 
+    text-align: justify; 
+}
+</style>
+</head>
+<body>
+<h1>Extraction Of Words</h1>
+<h2>HEADING</h2>
+<p id="paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.
+    Lorem ipsum dolor sit amet  adipisicing elit. Sunt doloribus numquam repudiandae consequuntur vero, velit odit cumque quia nostrum magni consectetur veniam, quo quod. Tempora, ducimus. Hic, quidem provident. Nam?
+    Lorem ipsum dolor sit amet  adipisicing elit. Officiis odio qui nesciunt. Soluta eos ab ratione voluptates aut nesciunt eius, reiciendis quo eaque autem, labore eum tempore omnis et. Eveniet?
+    Lorem ipsum dolor sit amet  adipisicing elit. Quasi, ratione eaque! Quaerat nam vero magni, voluptatum autem aspernatur adipisci!  veritatis dolorem voluptas eaque quaerat nesciunt necessitatibus, error maxime quae.
+    Lorem ipsum dolor sit amet consectetur elit. Doloribus officiis mollitia animi dolorum ab! Beatae iusto praesentium ea odit voluptas veritatis tenetur officiis, et, magni, cum voluptatibus tempore. Iusto, accusamus.
+    Lorem ipsum dolor sit amet consectetur elit. Repudiandae officia labore ex excepturi ut rerum at dolore aspernatur tempore eveniet explicabo odit  magnam quo, est sed commodi!
+    Lorem ipsum dolor, sit amet  elit. Laborum nam eveniet, alias voluptatem, delectus ratione quam illum sed laudantium aperiam aliquam. Ullam, culpa ratione veniam repellat doloribus aut consectetur repudiandae.
+</p>
+
+<script>
+function KichuV() {
+    var paragraph = document.getElementById('paragraph');
+    var text = paragraph.textContent.trim();
+    var words = text.split(/\s+/);
+
+    for (var i = 0; i < words.length; i++) {
+        if (words[i].length > 8) {
+            words[i] = '<span class="highlight">' + words[i] + '</span>'; 
+        }
+    }
+
+    paragraph.innerHTML = words.join(' '); 
+}
+
+KichuV();
+</script>
+</body>
+</html>
