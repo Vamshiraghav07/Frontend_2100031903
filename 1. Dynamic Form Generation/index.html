@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Form Builder</title>
+<style>
+  .center {
+    text-align: center;
+  }
+
+  
+  .green-button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; 
+  }
+
+ 
+  .red-button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: black;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<h1>Dynamic Form Builder</h1>
+  <div class="center">
+    <form id="dynamic-form">
+      <div id="form-fields">
+        
+      </div>
+      <br>
+      <button type="button" class="green-button" onclick="addField('text')">Add Text</button>
+      <button type="button" class="green-button" onclick="addField('checkbox')">Add Checkbox</button>
+      <button type="button" class="green-button" onclick="addField('radio')">Add Radio Button</button>
+      <button type="button" class="red-button" onclick="KichuR()">Remove Last Field</button>
+    </form>
+  </div>
+
+<script>
+  function addField(type) {
+    var formFields = document.getElementById('form-fields');
+    var newField;
+
+    if (type === 'checkbox') {
+      newField = document.createElement('input');
+      newField.setAttribute('type', 'checkbox');
+    } else if (type === 'text') {
+      newField = document.createElement('input');
+      newField.setAttribute('type', 'text');
+    } else if (type === 'radio') {
+      newField = document.createElement('input');
+      newField.setAttribute('type', 'radio');
+    }
+
+    formFields.appendChild(newField);
+  }
+
+  function KichuR() {
+    var formFields = document.getElementById('form-fields');
+    var lastField = formFields.lastElementChild;
+    if (lastField) {
+      formFields.removeChild(lastField);
+    }
+  }
+</script>
+</body>
+</html>
