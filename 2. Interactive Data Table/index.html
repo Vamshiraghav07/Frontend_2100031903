@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Data Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    h2 {
+      text-align: center; 
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      cursor: pointer;
+      background-color: #f2f2f2;
+    }
+    th.sorted-asc::after {
+      content: ' \u25B2'; 
+    }
+    th.sorted-desc::after {
+      content: ' \u25BC'; 
+    }
+    #filter-input {
+      margin-bottom: 10px;
+      padding: 8px;
+      width: 25%;
+      box-sizing: border-box;
+    }
+    .pagination {
+      text-align: center;
+    }
+    .pagination button {
+      padding: 8px 16px;
+      margin: 0 2px;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+      cursor: pointer;
+    }
+    .pagination button.active {
+      background-color: #4CAF50;
+      color: white;
+    }
+    #sort-button {
+      display: inline-block;
+      padding: 8px 16px;
+      margin-bottom: 10px;
+      border: 1px solid #dddddd;
+      background-color: #4CAF50;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Interactive Data Table</h2>
+  <input type="text" id="filter-input" placeholder="Filter...">
+  <button id="sort-button">Sort</button>
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th data-column="name">Name</th>
+        <th data-column="age">Age</th>
+        <th data-column="city">City</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+  
+  <div class="pagination" id="pagination-controls"></div>
+
+  <script src="table.js"></script>
+</body>
+</html>
